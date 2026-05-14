@@ -36,9 +36,10 @@ func main() {
 	server := api.NewServer(cfg)
 	if err := server.Run(); err != nil {
 		log.Fatalf("Server exited with error: %v", err)
-		// os.Exit(1) is redundant here since log.Fatalf already calls os.Exit(1)
 	}
 
-	// Unreachable, but kept to satisfy any static analysis tools
+	// os.Exit(0) is unreachable in normal operation since server.Run() blocks
+	// indefinitely. Kept here so the process exits cleanly if Run() ever returns
+	// without an error (e.g., graceful shutdown path added in the future).
 	os.Exit(0)
 }
