@@ -54,4 +54,10 @@ func main() {
 	// Personal note: I've been meaning to look into how signal.NotifyContext
 	// works with http.Server.Shutdown — seems like the cleanest approach.
 	// See: https://pkg.go.dev/os/signal#NotifyContext
+	//
+	// Update: looked into it — the pattern is roughly:
+	//   ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	//   defer stop()
+	//   ... pass ctx into server, call server.Shutdown(ctx) when ctx is done.
+	// Keeping this here as a reminder for when I actually wire it up.
 }
