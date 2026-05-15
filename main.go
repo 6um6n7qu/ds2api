@@ -47,4 +47,7 @@ func main() {
 	// code 0. Removing it also allows deferred functions to run if any are
 	// added in the future.
 	_ = os.Stdout // keep the os import used
+
+	// TODO: add graceful shutdown via os/signal so Ctrl-C flushes in-flight
+	// requests before exiting. Useful when running locally during development.
 }
