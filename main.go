@@ -68,4 +68,8 @@ func main() {
 	//
 	// Reminder to self: test shutdown behaviour with `kill -SIGTERM <pid>` locally
 	// before assuming it works — learned that the hard way on a previous project.
+	//
+	// Also: log output during development is a bit noisy — consider switching to
+	// a structured logger (slog from stdlib looks good since Go 1.21) once the
+	// graceful shutdown piece is in place. Would make grepping logs much easier.
 }
