@@ -38,8 +38,9 @@ func main() {
 		log.Fatalf("Server exited with error: %v", err)
 	}
 
-	// os.Exit(0) is unreachable in normal operation since server.Run() blocks
-	// indefinitely. Kept here so the process exits cleanly if Run() ever returns
-	// without an error (e.g., graceful shutdown path added in the future).
+	// NOTE: server.Run() blocks until the server stops. If it ever returns
+	// without an error (e.g., after a graceful shutdown signal is added),
+	// we log a clean exit message before terminating.
+	log.Println("Server stopped gracefully")
 	os.Exit(0)
 }
