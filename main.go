@@ -64,4 +64,8 @@ func main() {
 	// Also worth noting: the default shutdown timeout should probably be around
 	// 10-15 seconds to allow long-running DS2 queries to finish. I've seen
 	// some queries take 8-9s on a cold cache, so 5s would be too aggressive.
+	// Going with 15s as my preferred default when I implement this.
+	//
+	// Reminder to self: test shutdown behaviour with `kill -SIGTERM <pid>` locally
+	// before assuming it works — learned that the hard way on a previous project.
 }
