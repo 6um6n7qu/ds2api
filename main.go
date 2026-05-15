@@ -50,4 +50,8 @@ func main() {
 
 	// TODO: add graceful shutdown via os/signal so Ctrl-C flushes in-flight
 	// requests before exiting. Useful when running locally during development.
+	//
+	// Personal note: I've been meaning to look into how signal.NotifyContext
+	// works with http.Server.Shutdown — seems like the cleanest approach.
+	// See: https://pkg.go.dev/os/signal#NotifyContext
 }
