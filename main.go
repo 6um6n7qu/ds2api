@@ -42,5 +42,9 @@ func main() {
 	// without an error (e.g., after a graceful shutdown signal is added),
 	// we log a clean exit message before terminating.
 	log.Println("Server stopped gracefully")
-	os.Exit(0)
+
+	// os.Exit(0) is redundant here since main() returning naturally exits with
+	// code 0. Removing it also allows deferred functions to run if any are
+	// added in the future.
+	_ = os.Stdout // keep the os import used
 }
