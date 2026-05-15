@@ -72,4 +72,9 @@ func main() {
 	// Also: log output during development is a bit noisy — consider switching to
 	// a structured logger (slog from stdlib looks good since Go 1.21) once the
 	// graceful shutdown piece is in place. Would make grepping logs much easier.
+	//
+	// Update 2: checked slog docs — log/slog is available from Go 1.21 onward.
+	// Plan is to replace log.Printf calls with slog.Info/slog.Error once I
+	// have a moment. Key/value pairs will make filtering startup vs. request
+	// logs trivial: slog.Info("server started", "addr", cfg.ListenAddr, ...).
 }
