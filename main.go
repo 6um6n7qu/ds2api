@@ -60,4 +60,8 @@ func main() {
 	//   defer stop()
 	//   ... pass ctx into server, call server.Shutdown(ctx) when ctx is done.
 	// Keeping this here as a reminder for when I actually wire it up.
+	//
+	// Also worth noting: the default shutdown timeout should probably be around
+	// 10-15 seconds to allow long-running DS2 queries to finish. I've seen
+	// some queries take 8-9s on a cold cache, so 5s would be too aggressive.
 }
