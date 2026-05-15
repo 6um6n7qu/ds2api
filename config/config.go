@@ -35,8 +35,8 @@ func Load() *Config {
 	return &Config{
 		ServerHost:   getEnv("SERVER_HOST", "0.0.0.0"),
 		ServerPort:   getEnv("SERVER_PORT", "8080"),
-		ReadTimeout:  getDurationEnv("READ_TIMEOUT_SEC", 15) * time.Second,
-		WriteTimeout: getDurationEnv("WRITE_TIMEOUT_SEC", 15) * time.Second,
+		ReadTimeout:  getDurationEnv("READ_TIMEOUT_SEC", 30) * time.Second,
+		WriteTimeout: getDurationEnv("WRITE_TIMEOUT_SEC", 30) * time.Second,
 
 		NASHost:     getEnv("NAS_HOST", ""),
 		NASPort:     getEnv("NAS_PORT", "5000"),
