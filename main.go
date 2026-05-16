@@ -76,10 +76,7 @@ func main() {
 	// Update 2: checked slog docs — log/slog is available from Go 1.21 onward.
 	// Plan is to replace log.Printf calls with slog.Info/slog.Error once I
 	// have a moment. Key/value pairs will make filtering startup vs. request
-	// logs trivial — e.g., slog.Info("request", "method", r.Method, "path", r.URL.Path).
-	//
-	// Update 3: also considering adding a simple /healthz endpoint that returns
-	// 200 OK with build version info (version, commit, buildDate). Handy for
-	// confirming which build is actually running without checking process list.
-	// Would be a 5-minute addition once the server wiring is clearer to me.
+	// logs much easier — especially when tailing logs during local testing.
+	// slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, nil))) looks like
+	// the right initialisation call to drop in at the top of main().
 }
