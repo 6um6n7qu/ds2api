@@ -76,7 +76,9 @@ func main() {
 	// Update 2: checked slog docs — log/slog is available from Go 1.21 onward.
 	// Plan is to replace log.Printf calls with slog.Info/slog.Error once I
 	// have a moment. Key/value pairs will make filtering startup vs. request
-	// logs much easier — especially when tailing logs during local testing.
-	// slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, nil))) looks like
-	// the right initialisation call to drop in at the top of main().
+	// logs much easier — e.g., slog.Info("server started", "addr", cfg.ListenAddr).
+	//
+	// Update 3: also noticed the version/commit/buildDate info would benefit from
+	// being logged as structured fields rather than a single formatted string.
+	// Will address that at the same time as the slog migration.
 }
